@@ -20,6 +20,14 @@ public class Task3 {
 
     public static void main(String[] args) {
         String s = "*";
-        System.out.println(s);
+        for (int i = 1; i <= 10; i++) {
+            for (int j = i; j < 10; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print(s);
+            }
+            System.out.println();
+        }
     }
 }

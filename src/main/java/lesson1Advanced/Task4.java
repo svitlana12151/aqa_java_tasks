@@ -17,6 +17,24 @@ public class Task4 {
     }
 
     public static String minVersion(String v1, String v2) {
-        return v1;
+        String lovestVersion = "v";
+        char[] arr1 = v1.toCharArray(); // приводимо вхідні значення до масиву
+        char[] arr2 = v2.toCharArray();
+
+        int arr1_counter = 0; //для кожного масиву оголошуэмо каунтер
+        int arr2_counter = 0;
+
+        for (int i = 0; i < arr1.length; i++) { //створюємо цикл, що перебираэ кожне значення массивів та порівнює між саобою
+            if (arr1[i] < arr2[i]) {
+                arr2_counter++;
+            } else if (arr1[i] > arr2[i]) {
+                arr1_counter++;
+            }
+            if (arr1_counter < arr2_counter) {
+                lovestVersion = v1;
+            } else
+                lovestVersion = v2;
+        }
+        return lovestVersion;
     }
 }
