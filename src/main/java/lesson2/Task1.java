@@ -22,7 +22,7 @@ package lesson2;
     public class Task1 {
         public static void main(String[] args) {
             User user1 = new User();
-            user1.setAge(16);
+            user1.setAge(26);
             user1.setName("svit");
 
             user1.getUserInfo();

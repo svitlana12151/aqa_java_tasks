@@ -42,23 +42,20 @@ public class User {
     }
 
     public String getName() {         //геттер для name
+
         return name;
     }
 
-    private void setNameGroup() {         //сеттер для nameGroup DOESN"T WORK
-        if (age >= 15) {
-            this.nameGroup = "child";                   //ageGroup должен устанавливаться автоматически при установке возраста
-        } else if (age <= 25) {
-            this.nameGroup = "student";
+       public String getNameGroup() {                       //геттер для nameGroup
+        if (age >= 0 && age < 15) {
+            return nameGroup = "child";                   //ageGroup должен устанавливаться автоматически при установке возраста
+        } else if (age >= 15 && age <= 25) {
+            return nameGroup = "student";
         } else if (age >= 26 && age <= 65) {
-            this.nameGroup = "worker";
+             return nameGroup = "worker";
         } else {
-            this.nameGroup = "pensioner";
+            return nameGroup = "pensioner";
         }
-    }
-
-    public String getNameGroup() {                       //геттер для nameGroup
-        return nameGroup;
     }
 
     public void getUserInfo() {
