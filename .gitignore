@@ -1,5 +1,5 @@
 .idea/
 target/
 aqa_java_tasks.iml
-aqa.iml
+*.iml
 *.exe
