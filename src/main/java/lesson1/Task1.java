@@ -1,14 +1,14 @@
-package lesson1;
+package main.java.lesson1;
 
 public class Task1 {
     /* Минимум трех чисел
     Написать функцию, которая вычисляет минимум из трёх чисел.
     */
     public static void main(String[] args) {
-        min(5, 2, 3);
+        minOfThreeValues(5, 2, 3);
     }
 
-    public static int min(int a, int b, int c) {
+    public static int minOfThreeValues(int a, int b, int c) {
         /*a = 5;
         b = 2;
         c = 3;*/

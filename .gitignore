@@ -2,3 +2,4 @@
 target/
 aqa_java_tasks.iml
 aqa.iml
+*.exe
