@@ -44,11 +44,9 @@ public class Rozetka_UI_Tests {
         passwordField.click();
         driver.findElement(submit).click();
 
-        new WebDriverWait(driver, 10).until(presenceOfAllElementsLocatedBy(name));
         String actualBorderColorOfNameField = nameField.getCssValue("border-color");
         assertEquals(actualBorderColorOfNameField, expectedRedBorderColorOfAllFields, "Name assert failed:");
 
-        new WebDriverWait(driver, 10).until(presenceOfAllElementsLocatedBy(username));
         String actualBorderColorOfUsernameField = usernameField.getCssValue("border-color");
         assertEquals(actualBorderColorOfUsernameField, expectedRedBorderColorOfAllFields, "Username assert failed:");
 
@@ -67,13 +65,11 @@ public class Rozetka_UI_Tests {
         passwordField.click();
         driver.findElement(submit).click();
 
-        new WebDriverWait(driver, 10).until(presenceOfAllElementsLocatedBy(name));
         String actualBorderColorOfNameField = nameField.getCssValue("border-color");
         String expectedBorderColorOfNameField = "rgb(210, 210, 210)";
         assertEquals(actualBorderColorOfNameField, expectedBorderColorOfNameField);
         //assertFalse(actualBorderColorOfNameField.equals(expectedBorderColorOfAllFields), "Name assert failed:");
 
-        new WebDriverWait(driver, 10).until(presenceOfAllElementsLocatedBy(username));
         String actualBorderColorOfUsernameField = usernameField.getCssValue("border-color");
         assertEquals(actualBorderColorOfUsernameField, expectedRedBorderColorOfAllFields, "Username assert failed:");
 
