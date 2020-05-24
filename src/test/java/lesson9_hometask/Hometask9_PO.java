@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import test.java.lesson9_hometask.po.HomePage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
