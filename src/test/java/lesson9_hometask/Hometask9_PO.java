@@ -47,8 +47,8 @@ public class Hometask9_PO extends TestBaseSetup {
                 "Акумулятори та зарядні пристрої для інструменту і садової техніки"};
         for (String expectedEl : expectedListOfBoldCategories) {
             for (WebElement elOfBoldCatList : boldCategoriesList) {
-                String actuaElOfBoldCat = elOfBoldCatList.getText();
-                assertTrue(expectedEl.contains(actuaElOfBoldCat), "Expected element " + expectedEl + " should contain " + actuaElOfBoldCat);
+                String actualElOfBoldCat = elOfBoldCatList.getText();
+                assertTrue(expectedEl.contains(actualElOfBoldCat), "Expected element " + expectedEl + " should contain " + actualElOfBoldCat);
             }
         }
     }
