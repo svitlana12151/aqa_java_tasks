@@ -3,3 +3,5 @@ target/
 aqa_java_tasks.iml
 *.iml
 *.exe
+logs/
+screenshot/
