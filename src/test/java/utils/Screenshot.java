@@ -17,7 +17,7 @@ public class Screenshot {
 
     public void getScreenshot(ITestResult testResult) {
         TakesScreenshot screenshot = (TakesScreenshot)this.driver;
-        File src = (File)screenshot.getScreenshotAs(OutputType.FILE);
+        File src = screenshot.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(src, new File("screenshot\\\\"
                     + testResult.getTestClass().getName().replace(".", "\\\\")

@@ -23,8 +23,8 @@ public class TestBaseSetup {
     public void beforeMethod() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments(new String[]{"--disable-notifications"});
-        options.addArguments(new String[]{"--window-size=1300,1080"});
+        options.addArguments("--disable-notifications");
+        options.addArguments("--window-size=1300,1080");
         this.driver = new ChromeDriver();
         this.screenshot = new Screenshot(this.driver);
     }

@@ -15,18 +15,15 @@ public class Hometask9_PO extends TestBaseSetup {
     @BeforeMethod
     public void initialize() {
 
-        this.homePage = new HomePage(this.driver);
+        this.homePage = new HomePage(driver);
     }
 
     @Test
     public void onlyIphonesAreShownInResult() {
-        this.homePage.open();
-        this.homePage.search("iPhone");
-        List<WebElement> goodsList = this.homePage.searchResultItems();
-        Iterator var2 = goodsList.iterator();
-
-        while(var2.hasNext()) {
-            WebElement good = (WebElement)var2.next();
+        homePage.open();
+        homePage.search("iPhone");
+        List<WebElement> goodsList = homePage.searchResultItems();
+        for(WebElement good: goodsList) {
             String expectedGoodsName = "iphone";
             String actualGoodsName = good.getText().toLowerCase();
             Assert.assertTrue(
