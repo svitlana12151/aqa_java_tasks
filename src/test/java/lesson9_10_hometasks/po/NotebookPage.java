@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 import java.util.List;
 
@@ -23,16 +24,15 @@ public class NotebookPage {
     }
 
     public NotebookPage openNotebooksPage() {
-        logger.info("Navigate to notebooks page");
-        logger.warn("Navigate to notebooks page");
-        logger.error("Navigate to notebooks page");
-        driver.get("https://rozetka.com.ua/notebooks/c80004/filter/preset=workteaching/");
+        logger.info("Open");
+        driver.get(PropertyLoader.loadProperty("notebookurl"));
+        logger.debug("URL: " + driver.getCurrentUrl());
         return this;
     }
 
     public NotebookPage applyProducerFilter(By producerFilter) {
         logger.info("Apply filter");
-        wait.until(ExpectedConditions.presenceOfElementLocated(producerFilter));
+        wait.until(ExpectedConditions.elementToBeClickable(producerFilter));
         driver.findElement(producerFilter).click();
         logger.debug("Show filtered notebooks");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(filteredNotebook));

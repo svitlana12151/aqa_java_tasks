@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="First_suite" parallel="classes" thread-count="2">
+    <listeners>
+        <listener class-name="test.java.utils.Listener"/>
+        <listener class-name="test.java.utils.AnnotationTransformer"/>
+    </listeners>
+    <test name="Firefox test">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="test.java.lesson9_10_hometasks.Hometask9_PO"/>
+            <class name="test.java.lesson9_10_hometasks.Hometask10_DP"/>
+        </classes>
+    </test>
+    <test name="Chrome test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="test.java.lesson9_10_hometasks.Hometask9_PO"/>
+            <class name="test.java.lesson9_10_hometasks.Hometask10_DP"/>
+        </classes>
+    </test>
+</suite>

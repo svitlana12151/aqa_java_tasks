@@ -3,23 +3,22 @@ package test.java.lesson9_10_hometasks.po;
 import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 public class HomePage {
     private final WebDriver driver;
     private final WebDriverWait wait;
     private String searchStr;
     String popupStrSelect = "[class='popup-css lang-switcher-popup sprite-side']";
-    By search = By.cssSelector("[name='text']");
-    private By searchResultItem = By.xpath("//span[contains(text(), '" + this.searchStr + "')]");
+    By search = By.cssSelector("[name='search']");
+    //By searchResultItem = By.xpath("//span[contains(text(), '" + searchStr + "')]");
     private By popup = By.cssSelector(popupStrSelect);
     private By popupClose = By.cssSelector(popupStrSelect + " [class='popup-close']");
     private By boldCategories = By.cssSelector("[class='m-cat-l-i-title rz-m-cat-l-i-title']");
+    private By searchedGoods = By.xpath ("//div[@class = 'goods-tile__inner']");
     Logger logger = LogManager.getLogger(HomePage.class);
 
     public HomePage(WebDriver driver) {
@@ -30,7 +29,7 @@ public class HomePage {
 
     public HomePage open() {
         logger.info("Open");
-        driver.get("https://rozetka.com.ua");
+        driver.get(PropertyLoader.loadProperty("url"));
         logger.debug("URL: " + this.driver.getCurrentUrl());
         return this;
     }
@@ -38,7 +37,6 @@ public class HomePage {
     public HomePage search(String searchStr) {
         logger.info("Find 'Search' field");
         this.searchStr = searchStr;
-        By searchResultItem = By.xpath("//span[contains(text(), '" + searchStr + "')]");
         WebElement searchEl = driver.findElement(search);
         this.wait.until(ExpectedConditions.elementToBeClickable(searchEl));
         if (driver.findElements(popup).size() > 0) {
@@ -54,19 +52,18 @@ public class HomePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(searchResultItem)));
         return this;
     }
 
     public List<WebElement> searchResultItems() {
         logger.info("Show searched elements");
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(searchResultItem)));
-        return driver.findElements(searchResultItem);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(searchedGoods));
+        return driver.findElements(searchedGoods);
     }
 
     public List<WebElement> getBoldCategoriesOfGoods() {
         logger.info("Find bold categories on left menu");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(boldCategories));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(boldCategories));
         return driver.findElements(boldCategories);
     }
 }

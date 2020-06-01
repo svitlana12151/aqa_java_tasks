@@ -8,6 +8,10 @@
     <artifactId>aqa</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <suiteXmlFile>testng.xml</suiteXmlFile>
+    </properties>
+
     <build>
         <sourceDirectory>src</sourceDirectory>
         <resources>
@@ -33,11 +37,10 @@
                 <version>3.0.0-M4</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
     <dependencies>
@@ -70,6 +73,4 @@
             <version>2.6</version>
         </dependency>
     </dependencies>
-
-
 </project>

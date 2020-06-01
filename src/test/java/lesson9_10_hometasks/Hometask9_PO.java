@@ -1,7 +1,6 @@
 package test.java.lesson9_10_hometasks;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -14,11 +13,10 @@ public class Hometask9_PO extends TestBaseSetup {
 
     @BeforeMethod
     public void initialize() {
-
         this.homePage = new HomePage(driver);
     }
 
-    @Test
+    @Test()
     public void onlyIphonesAreShownInResult() {
         homePage.open();
         homePage.search("iPhone");
@@ -34,7 +32,8 @@ public class Hometask9_PO extends TestBaseSetup {
 
     @Test
     public void allTypesOfGoodsAreShown() {
-        homePage.open().search("Samsung");
+        homePage.open()
+                .search("Samsung");
         List<WebElement> boldCategoriesList = homePage.getBoldCategoriesOfGoods();
         List<String> expectedListOfBoldCategories = Arrays.asList(
                 "Смартфони, ТВ і електроніка",

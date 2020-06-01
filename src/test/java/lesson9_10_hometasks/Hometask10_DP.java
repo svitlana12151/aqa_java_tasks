@@ -16,7 +16,7 @@ public class Hometask10_DP extends TestBaseSetup {
         notebookPage = new NotebookPage(driver);
     }
 
-    @Test(dataProvider = "Producers")
+    @Test(/*dataProvider = "Producers", dataProviderClass = ProducersDataProvider.class*/)
     public void selectedProducerIsApplied(By producerFilter, String expectedProducer) {
         notebookPage.openNotebooksPage();
         notebookPage.applyProducerFilter(producerFilter);
