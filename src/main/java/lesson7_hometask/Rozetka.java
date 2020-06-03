@@ -12,14 +12,8 @@ public class Rozetka {
 
         String phonetext = driver.findElement(By.cssSelector("[class='link-dashed']")).getText();
         Thread.sleep(10000);
-
-        String [] number = phonetext.split(" ");
-        String numberFromBrackets= number[0].substring(phonetext.indexOf("(")+1, phonetext.indexOf(")"));
-        String[] numberAfterBrackets = number[1].split("-");
-        System.out.print(numberFromBrackets);
-        for (String a: numberAfterBrackets)
-            System.out.print(a);
-
+        String phonenumb = phonetext.replaceAll("[^\\d]" ,"");
+        System.out.print(phonenumb);
         driver.quit();
         }
 }
