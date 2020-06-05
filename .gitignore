@@ -5,3 +5,4 @@ aqa_java_tasks.iml
 *.exe
 logs/
 screenshot/
+allure-results/
