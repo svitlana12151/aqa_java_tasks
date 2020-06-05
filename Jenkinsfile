@@ -2,19 +2,20 @@ pipeline {
 agent any
 
 stages{
-stage("First") {
+stage("Preparation") {
    steps {
-   echo 'Hello'
+   echo 'Download updates'
+   git 'https://github.com/svitlana12151/aqa_java_tasks.git'
     }
    }
-   stage("Second") {
+   stage("Unit Test") {
       steps {
-      echo 'Hello'
+      bat 'mvn clean -DsuiteXmlFile=testng.xml test'
        }
       }
- stage("Third") {
+ stage("UI test") {
     steps {
-    echo 'Hello'
+    echo 'mvn clean -DsuiteXmlFile=allure-testng.xml'
      }
     }
     }
