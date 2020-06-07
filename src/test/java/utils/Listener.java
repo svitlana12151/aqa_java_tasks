@@ -59,11 +59,6 @@ public class Listener implements
     }
 
     @Override
-    public void onTestFailedWithTimeout(ITestResult result) {
-        logger.info("Test failed with timeout");
-    }
-
-    @Override
     public void onStart(ITestContext context) {
 
     }
