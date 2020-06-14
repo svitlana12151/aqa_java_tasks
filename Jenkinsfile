@@ -15,8 +15,23 @@ stage("Preparation") {
       }
  stage("UI test") {
     steps {
-    echo 'mvn clean -DsuiteXmlFile=allure-testng.xml'
+    bat 'mvn clean -DsuiteXmlFile=allure-testng.xml'
      }
+    }
+    stage('reports'){
+    }
+    }
+    post{
+    always {
+    script {
+                allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'target/allure-results']]
+                ])
+    }
     }
     }
     }

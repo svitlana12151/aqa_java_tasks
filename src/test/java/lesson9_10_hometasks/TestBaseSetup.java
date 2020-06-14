@@ -23,13 +23,11 @@ public class TestBaseSetup {
             ChromeOptions chOptions = new ChromeOptions();
             chOptions.addArguments("--disable notifications");
             chOptions.addArguments("--window-size=1300,1080");
-            chOptions.addArguments("--lang=ua");
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chOptions);
         } else if (browser.equalsIgnoreCase("firefox")) {
             FirefoxOptions ffOptions = new FirefoxOptions();
             ffOptions.addArguments("--disable notifications");
             ffOptions.addArguments("--window-size=1300,1080");
-            ffOptions.addArguments("--lang=ua");
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), ffOptions);
         }
         context.setAttribute("driver", driver);
